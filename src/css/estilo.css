@@ -1,13 +1,27 @@
-body{
+body {
     font-family: 'Figtree', sans-serif;
     /* sans-serif é a fonte que vai ser carregada caso a primeira
     opção não seja carregada */
     max-width: 1280px;
     margin: 0 auto;
-    }
-    
-    .conteudo{
-    background-color: blue;
+}
+
+main:after {
+    /* criamos um pseudo elemento para utilizar uma mascara na frente das imagens */
+    content: '';
+    min-height: 100vh;
+    /* ocupa toda a altura da tela */
+    width: 100vw;
+    /* ocupa toda a largura da tela */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: linear-gradient(90deg, rgba(0, 0, 0, 1), 10%, rgba(0, 0, 0, 0.05926120448179273) 50%, rgba(0, 0, 0, 1) 90%);
+    z-index: -1;
+
+}
+
+.conteudo {
     display: flex;
     /* O Flexbox é um conceito do CSS3 que visa organizar os elementos de uma página HTML dentro de seus containers de forma dinâmica. Ou seja, independente das suas dimensões eles sempre manterão um layout flexível dentro do seu elemento pai, reorganizando-se e acordo com a necessidade. */
     flex-direction: column;
@@ -17,25 +31,132 @@ body{
     /* min-height siginifica minímo de altura */
     justify-content: space-evenly;
     /* A propriedade justify-content do CSS define como o navegador distribui o espaço entre e ao redor dos itens de conteúdo ao longo do eixo principal de um contêiner flexível e o eixo inline de um contêiner de grade, já o space-evenly é para dar um espaçamento uniforme */
-    }
+    align-items: left;
+}
 
-    .informacoes{
-        background-color: blueviolet;
-    }
 
-    .informacoes .logo{
-        max-width: 350px;
-        filter: invert(1);
-        /* serve para inverter a cor do objeto */
-        margin-bottom: 40px;
-    }
 
-.informacoes .descricao{
+.informacoes .logo {
+    max-width: 350px;
+    filter: invert(1);
+    /* serve para inverter a cor do objeto */
+    margin-bottom: 40px;
+}
+
+.informacoes .descricao {
     width: 49%;
     /* 49% pegou a medida do pai(da div pai) */
     font-size: 24px;
     /* tamanho da fonte */
     color: #ffffff;
     /* hexadecimal da cor */
-    
+    line-height: 30px;
+    /* espaçamento entre as linhas */
+}
+
+.botoes-carrossel {
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* espaçamento entre os objetos */
+}
+
+.botoes-carrossel .botao {
+    background-color: white;
+    width: 15px;
+    /* largura */
+    height: 15px;
+    border-radius: 50%;
+    /* raio da borda arredondado */
+    border: 2px solid transparent;
+    /* usamos para deixar o efeito dentro da bolinha */
+    cursor: pointer;
+    /* o mouse fica com o cursor para clicar quando passar por cima*/
+    border-color: #ffffff;
+
+}
+
+.botoes-carrossel .botao.selecionado {
+    /* quando não dá espaço como em cima, é pq é para estilizar as duas classes */
+    background-color: black;
+}
+
+.menu-lateral {
+    position: fixed;
+    /* posição fixada */
+    top: 0;
+    right: 0;
+    /* quando o objeto é fixado é necessário expecificar a posição dele */
+    width: 80px;
+    display: flex;
+    flex-direction: row;
+    /* display flex foi utilizado para fazer o posicionamento */
+    justify-content: center;
+    /* centraliza horizontalmente */
+    align-items: center;
+    /* centraliza verticalmente */
+    min-height: 100vh;
+
+}
+
+.menu-lateral ul {
+    display: flex;
+    flex-direction: column;
+    /* o flex direction define a posição do objeto, horizontal(columm) ou vertical(row)*/
+    gap: 8px;
+}
+
+.menu-lateral .icone {
+    width: 30px;
+    /* deixa os itens alinhados em blocos */
+    transition: 0.3s ease-in-out;
+    /* trasition faz a animação dos icones */
+    filter: invert(1);
+}
+
+.iconeespecial {
+    width: 30px;
+    /* deixa os itens alinhados em blocos */
+    transition: 0.3s ease-in-out;
+    /* trasition faz a animação dos icones */
+}
+
+.menu-lateral .icone:hover, .iconeespecial:hover {
+    transform: scale(1.2);
+    /* transform = sobrepor, quando passar o mouse por cima ele vai aumentar o icone */
+}
+
+.carrossel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    /* serve para jogar a imagem para trás de tudo ou seja serve para dar profundidade*/
+
+}
+
+.carrossel .imagem {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    /* serve para cobrir todo o tamanho da div mas sem perder qualidade */
+    display: none;
+    /* serve para esconder as imagens */
+    animation: mudarImagem 0.7s;
+}
+
+.carrossel .imagem.ativa {
+    display: block;
+}
+
+@keyframes mudarImagem {
+    from {
+        opacity: 0.85;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
