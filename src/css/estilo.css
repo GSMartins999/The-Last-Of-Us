@@ -1,0 +1,41 @@
+body{
+    font-family: 'Figtree', sans-serif;
+    /* sans-serif é a fonte que vai ser carregada caso a primeira
+    opção não seja carregada */
+    max-width: 1280px;
+    margin: 0 auto;
+    }
+    
+    .conteudo{
+    background-color: blue;
+    display: flex;
+    /* O Flexbox é um conceito do CSS3 que visa organizar os elementos de uma página HTML dentro de seus containers de forma dinâmica. Ou seja, independente das suas dimensões eles sempre manterão um layout flexível dentro do seu elemento pai, reorganizando-se e acordo com a necessidade. */
+    flex-direction: column;
+    /* A propriedade flex-direction permite alterar a direção na qual os elementos flex serão exibidos ao longo do eixo principal. */
+    min-height: 100vh;
+    /* vh pegou a medida da tela toda */
+    /* min-height siginifica minímo de altura */
+    justify-content: space-evenly;
+    /* A propriedade justify-content do CSS define como o navegador distribui o espaço entre e ao redor dos itens de conteúdo ao longo do eixo principal de um contêiner flexível e o eixo inline de um contêiner de grade, já o space-evenly é para dar um espaçamento uniforme */
+    }
+
+    .informacoes{
+        background-color: blueviolet;
+    }
+
+    .informacoes .logo{
+        max-width: 350px;
+        filter: invert(1);
+        /* serve para inverter a cor do objeto */
+        margin-bottom: 40px;
+    }
+
+.informacoes .descricao{
+    width: 49%;
+    /* 49% pegou a medida do pai(da div pai) */
+    font-size: 24px;
+    /* tamanho da fonte */
+    color: #ffffff;
+    /* hexadecimal da cor */
+    
+}
