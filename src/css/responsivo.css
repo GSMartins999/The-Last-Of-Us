@@ -1,8 +1,9 @@
 @media (max-width: 1200px){
     body{
-        padding: 0, 40px;
+        padding: 0, 60px;
     }
-}
+    
+} 
 
 @media (max-width: 768px){
     .informacoes{
@@ -18,9 +19,29 @@
 @media (max-width: 425px) {
     .informacoes .Logo{
         max-width: 300px;
+        padding: 10pxs;
+    }
+    .informacoes .descricao{
+        width: 100%;
+    }
+
+    .menu-lateral{
+        position: static;
+        min-height: auto;
+        width: 100%;
+        margin-top: 50px;
+
+    }
+    .menu-lateral ul{
+        flex-direction: row;
+        /* deixou os icones em linha */
+    }
+    .conteudo{
+        min-height: 70vh;
+        gap: 50px;
     }
 }
 
 }
 
-/* é possível colocar regras em relação a responsividade das telas */
+/* é possível colocar regras em relação a responsividade de cada tamanho de tela */
